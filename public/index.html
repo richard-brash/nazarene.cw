@@ -48,8 +48,9 @@
 				<nav id="navigation">
 						<ul class="nav">
 							<li class="active"><a href="#main" title="Home">Home</a></li>
-                            <li><a href="#dutch" title="Vision">Nederlands</a></li>
-                            <li><a href="#english" title="Family">English</a></li>
+                            <li><a href="#dutch" title="Dutch">Nederlands</a></li>
+                            <li><a href="#english" title="English">English</a></li>
+                            <li><a href="#contact" title="Contact">Contacteer Ons / Contact Us</a></li>
 						</ul>
 				</nav>
 			</div><!-- end 12 -->
@@ -303,28 +304,37 @@
 
 <!-- ========================== CONTACT =========================== -->
 
-<!--<div id="contact">-->
+<div id="contact">
 
-		<!--<div class="container">-->
-			<!--<div class="row">-->
-				<!--<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">-->
-                    <!--<p>-->
-                        <!--<br/>-->
-                        <!--<b></b><em>Questions / vragen?</em></p>-->
-                    <!--</p>-->
+    <!-- intro strip -->
+    <div id="intro-strip">
+        <div class="container">
+            <div class="row">
 
-					<!--<form>-->
-                        <!--<p><input class="form-control" id="name" placeholder="Enter name/naam"></p>-->
-                        <!--<p><input class="form-control" id="email" placeholder="Enter email"></p>-->
-                        <!--<p>-->
-                            <!--<textarea cols="75" rows="5"></textarea>-->
-                        <!--</p>-->
-                        <!--<p><button id="signupsubmit" class="btn btn-db">Send / sturen!</button></p>-->
-                    <!--</form>-->
-				<!--</div>-->
-			<!--</div>&lt;!&ndash; end row &ndash;&gt;-->
-		<!--</div>&lt;!&ndash; end container &ndash;&gt;-->
-<!--</div>&lt;!&ndash; end contact &ndash;&gt;-->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end intro strip -->
+
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                    <p>
+                        <br/>
+                        <b></b><em>Vragen / Questions?</em></p>
+                    </p>
+
+					<form>
+                        <p><input class="form-control" id="name" placeholder="naam/name"></p>
+                        <p><input class="form-control" id="email" placeholder="email"></p>
+                        <p>
+                            <textarea id="note" cols="75" rows="5"></textarea>
+                        </p>
+                        <p><button id="signupsubmit" class="btn btn-db">Sturen / Send!</button></p>
+                    </form>
+				</div>
+			</div><!-- end row -->
+		</div><!-- end container -->
+</div><!-- end contact -->
 
 <footer>
 	<div class="container">
@@ -365,16 +375,15 @@
           $("#signupsubmit").click(function(){
               var email = $("#email").val();
               var name = $("#name").val().split(" ");
-              var groups = [];
+              var note = $("#note").val();
+
 
               if(name && email){
                   var data = {
                       FirstName: name[0],
                       LastName: (name[1])?name[1]: "",
                       Email: email,
-                      addtogroup: ($("#coreteam").is(":checked")) ? 166:164, //coreteam or infopartner
-                      groups: groups,
-                      dupcheck:"Email"
+                      Note: note
                   };
 
                   $.ajax({
@@ -385,15 +394,12 @@
                       data: JSON.stringify(data),
                       success: function(msg) {
 
-                          toastr.success("Your team membership has been recorded.  Thank You!");
-
-                          if($("#support").is(":checked")){
-                              window.location.href = "http://web.nazarene.org/goto/brash";
-                          }
+                          console.log(msg);
+                          toastr.success("Your note has been received.  Thank You!");
 
                       },
                       error: function (xhr, ajaxOptions, thrownError) {
-                          toastr.error("We had trouble saving your team membership, please try again later.");
+                          toastr.error("We had trouble saving your note, please try again later.");
                           console.log(xhr);
                           console.log(ajaxOptions);
                           console.log(thrownError);

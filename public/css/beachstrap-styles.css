@@ -186,6 +186,16 @@ nav a {
     color: #fff;
     background: #3d505f; }
 
+#intro-strip {
+    background-color: #f1784d;
+    padding: 20px 0;
+    text-align: center;
+    -moz-box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3); }
+#intro-strip h1 {
+    color: #fff; }
+
 #intro-strip-dutch {
   background-color: #f1784d;
   padding: 20px 0;
