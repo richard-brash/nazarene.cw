@@ -50,6 +50,11 @@ p {
   font-size: 15px;
   line-height: 26px;
   margin-bottom: 32px; }
+  
+#iframeresize { 
+	width: 1px;
+    min-width: 100%;
+    *width: 100%; }
 
 .form-control {
   border-radius: 0;
@@ -416,7 +421,7 @@ footer .sn-links a {
     text-align: center;
     font-size: 32px;
     line-height: 38px; }
-
+ 	
   .btn-db {
     margin-top: 10px; }
 
