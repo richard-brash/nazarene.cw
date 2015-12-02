@@ -51,7 +51,9 @@ p {
   line-height: 26px;
   margin-bottom: 32px; }
   
-#iframeresize { 
+#iframeresize {
+	overflow: scroll;
+    white-space: nowrap;
 	width: 1px;
     min-width: 100%;
     *width: 100%; }
