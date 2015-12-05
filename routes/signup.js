@@ -19,7 +19,7 @@ router.post("/formhandler", function(req,res){
     var email = new sendgrid.Email();
 
     email.addTo("richard@richardbrash.com");
-    email.addTo("jonathan.petrus@gmail.com");
+    email.addTo("kvdncuracao@gmail.com");
     email.setFrom(input.Email);
     email.setSubject("Someone sent a note from nazarenecuracao.org");
 
