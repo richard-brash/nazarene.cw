@@ -322,7 +322,7 @@
 			<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
 				<p class="sn-links">
                     <!--<a href="https://twitter.com/richardbrash" title="twitter"><i class="fa fa-twitter"></i></a>-->
-                    <!--<a href="https://www.facebook.com/pages/Richard-Brash-Marketing/133882460048899" title="facebook"><i class="fa fa-facebook"></i></a>-->
+                    <!--<a href="https://www.facebook.com/kerkvandenazarenercuracao" title="facebook"><i class="fa fa-facebook"></i></a>-->
 				    <!--<a href="https://www.linkedin.com/in/richardbrashmarketing" title="linked-in"><i class="fa fa-linkedin-square"></i></a></p>-->
 			</div>
 		</div>
@@ -349,19 +349,20 @@
       $(document).ready(function(){
 
           $("#signupsubmit").click(function(){
+			  toastr.info("Processing started... Your request has been submitted.");
               var email = $("#email").val();
               var name = $("#name").val().split(" ");
               var note = $("#note").val();
 
 
               if(name && email){
-                  var data = {
+				  var data = {
                       FirstName: name[0],
                       LastName: (name[1])?name[1]: "",
                       Email: email,
                       Note: note
                   };
-
+				
                   $.ajax({
                       contentType: 'application/json',
                       type: 'POST',
@@ -371,11 +372,11 @@
                       success: function(msg) {
 
                           console.log(msg);
-                          toastr.success("Your note has been received.  Thank You!");
+                          toastr.success("Processing completed... Your note has been received.  Thank You!");
 
                       },
                       error: function (xhr, ajaxOptions, thrownError) {
-                          toastr.error("We had trouble saving your note, please try again later.");
+                          toastr.error("Processing unsuccesful... We had trouble saving your note, please try again later.");
                           console.log(xhr);
                           console.log(ajaxOptions);
                           console.log(thrownError);
@@ -385,7 +386,7 @@
 
 
               } else {
-                  toastr.error("Sorry about this but we need both a name and an email address from you.");
+                  toastr.error("Processing stopt... Sorry  but we need both a name and an email address from you.");
               }
 
               return false;
