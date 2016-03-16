@@ -10,6 +10,10 @@ router.get("/", function(req,res){
     res.json({Message:"Here we are"});
 });
 
+router.post("/junk", function(req,res){
+    res.json({Message:"Here we are"});
+})
+
 router.post("/formhandler", function(req,res){
 
     var input = req.body;
@@ -19,9 +23,9 @@ router.post("/formhandler", function(req,res){
     var email = new sendgrid.Email();
 
     email.addTo("richard@richardbrash.com");
-    email.addTo("kvdncuracao@gmail.com");
+    email.addTo("jonathan.petrus@gmail.com");
     email.setFrom(input.Email);
-    email.setSubject("Someone sent a note from nazarenecuracao.org");
+    email.setSubject("Information request on nazarenecuracao.com");
 
     email.setText(
         "First Name:" + input.FirstName + "\n" +
@@ -38,6 +42,30 @@ router.post("/formhandler", function(req,res){
     );
 
     sendgrid.send(email, function(error, result){
+
+
+        var email2 = new sendgrid.Email();
+        email2.addTo(input.Email);
+        email2.setFrom("kvdncuracao@gmail.com");
+        email2.setSubject("Thank you for contacting us on nazarenecuracao.com");
+
+        email2.setHtml(
+            "<p>Beste " + input.FirstName + "</p>" +
+            "<p>Dank u wel voor uw bericht op onze website www.nazarenecuracao.com." +
+            " We hebben u bericht in goede orde ontvangen en zullen zo snel mogelijk contact met u opnemen.</p>" +
+            "<p>God's zegen,</p>" +
+            "<p>Kerk van de Nazarener Curaçao</p>" +
+            "<br/><br/><hr/><br/><br/>" +
+            "<p>Dear " + input.FirstName + "</p>" +
+            "<p>Thank you for contacting Curaçao Church of the Nazarene via our website www.nazarenecuracao.com." +
+            " We received your message in good order and we will repond to your message as soon as possible.</p>" +
+            "<p>God's blessings,</p>" +
+            "<p>Curaçao Church of the Nazarene</p>"
+        );
+
+        sendgrid.send(email2, function(error2, result2){
+
+        });
 
         if(error){
             res.json(error);
