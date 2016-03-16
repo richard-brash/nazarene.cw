@@ -103,7 +103,10 @@ header h1#logo {
   padding: 1px 0;
   text-indent: -9999px;
   background: url(../images/logo.png) no-repeat 0 0;
-  background-position: left	}
+  background-position: left;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  background-size: contain  }
 
 nav ul.nav {
   text-align: right;
@@ -416,7 +419,7 @@ footer .sn-links a {
     text-align: center;
     font-size: 32px;
     line-height: 38px; }
-
+ 	
   .btn-db {
     margin-top: 10px; }
 
