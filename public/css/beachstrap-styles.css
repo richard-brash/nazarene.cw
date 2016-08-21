@@ -133,12 +133,12 @@ nav a:hover, nav a.active {
 
 /* ====================== MAIN ========================= */
 #main {
-  background: url(../images/KERKNAZARENER.png) 0 0 no-repeat;/* fixed;*/
-  min-height: 600px;
+  background: url(../images/KERKNAZARENER_screen991up.png) no-repeat;/* fixed;*/
+  min-height: 500px;
   -webkit-background-size: contain;
   -moz-background-size: contain;
   background-size: contain;
-  background-position: center;
+  background-position: center 80px;
   /* Internet Explorer 7/8 */
   /*background-attachment: fixed; */}
 #main .cont-wrapper {
@@ -412,6 +412,9 @@ footer .sn-links a {
     /* 	line-height: 0; */ }
 
   #main {
+	background: url(../images/KERKNAZARENER_screen991down.png) no-repeat;
+	background-size: contain;
+    background-position: center 80px;
     min-height: 500px !important; }
   #main .cont-wrapper {
     top: 100px;}
@@ -462,9 +465,12 @@ footer .sn-links a {
     line-height: 26px; }
 
   #main {
+	background: url(../images/KERKNAZARENER_screen991down.png) no-repeat;
     background-attachment: scroll;
+	background-size: contain;
+    background-position: center 80px;
     /*background-position-x: -100px;*/
-    min-height: 600px; }
+    min-height: 500px; }
   #main .cont-wrapper {
     top: 110px; }
   #main p.intro {
